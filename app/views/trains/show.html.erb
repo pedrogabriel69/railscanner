@@ -6,6 +6,21 @@
 </p>
 
 <p>
+  <strong>Wagons quantity:</strong>
+  <%= @train.wagons.count %><br>
+  Economy: <%= @train.wagons.where(type: 'Economy').count %><br>
+  Comfort: <%= @train.wagons.where(type: 'Comfort').count %>
+</p>
+
+<p>
+  <strong>Seats quantity:</strong><br>
+  Economy - Up Seat: <%= @train.wagons.where(type: 'Economy').sum(:up_seat) %><br>
+  Economy - Low Seat: <%= @train.wagons.where(type: 'Economy').sum(:down_seat) %><br>
+  Comfort - Up Seat: <%= @train.wagons.where(type: 'Comfort').sum(:up_seat) %><br>
+  Comfort - Low Seat: <%= @train.wagons.where(type: 'Comfort').sum(:down_seat) %><br>
+</p>
+
+<p>
   <strong>On station:</strong>
   <% if @train.current_station.present? %>
   	<%= @train.current_station.title %>
