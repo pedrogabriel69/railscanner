@@ -1,0 +1,27 @@
+<%= form_for(@wagon) do |f| %>
+  <%= render 'common/errors', resource: @wagon %>
+
+  <div class="field">
+  	<%= f.label :train, "Number Train" %>
+  	<%= f.collection_select :train_id, Train.all, :id, :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type, "Wagon Type" %>
+    <%= f.select(:type, options_for_select([:Economy, :Comfort])) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :up_seat, "Up Seat" %>
+    <%= f.number_field :up_seat %>
+  </div>
+
+  <div class="field">
+    <%= f.label :down_seat, "Low Seat" %>
+    <%= f.number_field :down_seat %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "#{ @wagon.new_record? ? 'Create' : 'Edit' }" %>
+  </div>
+<% end %>

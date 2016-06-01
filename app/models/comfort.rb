@@ -1,0 +1,2 @@
+class Comfort < Wagon
+end

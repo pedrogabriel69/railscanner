@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wagon Type:</strong>
+  <%= @wagon.type %>
+</p>
+
+<p>
+  <strong>Seats (Up/Low):</strong>
+  <%= @wagon.up_seat %> / <%= @wagon.down_seat %> 	
+</p>
+
+<p>
+  <strong>Wagon belongs to train number:</strong>
+  <%= @wagon.train.number %>
+</p>
+
+<%= link_to 'Edit', edit_wagon_path(@wagon) %> |
+<%= link_to 'Back', wagons_path %>
