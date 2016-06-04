@@ -17,10 +17,10 @@
 <p>
   <strong>Wagons quantity:</strong>
   <%= @train.wagons.count %><br>
-  Super Economy: <%= @train.count_wagons(SuperEconomy) %><br>
-  Economy: <%= @train.count_wagons(Economy) %><br>
-  Comfort: <%= @train.count_wagons(Comfort) %><br>
-  Lux: <%= @train.count_wagons(Lux) %>
+  Super Economy: <%= @train.wagons.super_economy.size %><br>
+  Economy: <%= @train.wagons.economy.size %><br>
+  Comfort: <%= @train.wagons.comfort.size %><br>
+  Lux: <%= @train.wagons.lux.size %>
 </p>
 
 <p>
