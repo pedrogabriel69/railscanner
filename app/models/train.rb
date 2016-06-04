@@ -5,4 +5,12 @@ class Train < ActiveRecord::Base
   has_many :wagons
 
   validates :number, presence: true
+
+  def count_wagons(wagon_type)
+    wagons.where(type: wagon_type).count
+  end
+
+  def count_seats(wagon_type, seats_type)
+    wagons.where(type: wagon_type).sum(seats_type)
+  end
 end

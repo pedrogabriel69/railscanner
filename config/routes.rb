@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :wagons
   resources :economy, controller: 'wagons', type: 'Economy'
   resources :comfort, controller: 'wagons', type: 'Comfort'
+  resources :super_economy, controller: 'wagons', type: 'SuperEconomy'
+  resources :lux, controller: 'wagons', type: 'Lux'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

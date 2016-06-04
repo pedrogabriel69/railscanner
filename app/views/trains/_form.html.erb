@@ -7,14 +7,14 @@
   </div>
 
   <div class="field">
-  	<%= f.label :current_station, "Current Station" %>
-  	<%= f.collection_select :current_station_id, RailwayStation.all, :id, :title %>
-  </div>
-
-  <div class="field">
     <%= f.label :route, "Routes" %>
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
+
+  <div class="field">
+    <%= f.label 'Head --> Tail' %>
+    <%= f.check_box :head %>
+  </div>  
 
   <div class="actions">
     <%= f.submit "#{ @train.new_record? ? 'Create' : 'Edit' }" %>
