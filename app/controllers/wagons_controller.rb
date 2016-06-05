@@ -24,8 +24,12 @@ class WagonsController < ApplicationController
       end
   end
 
-  def update
-    @wagon.type == 'Economy' ? update_economy : update_comfort            
+  def update    
+    if @wagon.update(wagon_params)
+        redirect_to @wagon
+      else
+        render :edit
+    end        
   end
 
   def destroy
@@ -33,37 +37,13 @@ class WagonsController < ApplicationController
     redirect_to wagons_path
   end
 
-  private
-
-  def update_economy    
-    if @wagon.update(economy_params)
-        redirect_to @wagon
-      else
-        render :edit
-    end        
-  end
-
-  def update_comfort   
-    if @wagon.update(comfort_params)
-        redirect_to @wagon
-      else
-        render :edit
-    end        
-  end
+  private  
     
   def set_wagon
-    @wagon = Wagon.find(params[:id])
+    @wagon = Wagon.find(params[:id]).becomes(Wagon)
   end
 
   def wagon_params
-    params.require(:wagon).permit(:type, :up_seat, :down_seat, :train_id)
-  end
-
-  def economy_params
-    params.require(:economy).permit(:type, :up_seat, :down_seat, :train_id)
-  end
-
-  def comfort_params
-    params.require(:comfort).permit(:type, :up_seat, :down_seat, :train_id)
-  end
+    params.require(:wagon).permit(:type, :number, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :economy_bottom_seats, :train_id)
+  end  
 end

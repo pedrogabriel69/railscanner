@@ -1,42 +1,51 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Number:</strong>
+  <strong>Train Number:</strong>
   <%= @train.number %>
-</p>
-
-<p>
-  <strong>Wagons quantity:</strong>
-  <%= @train.wagons.count %><br>
-  Economy: <%= @train.wagons.where(type: 'Economy').count %><br>
-  Comfort: <%= @train.wagons.where(type: 'Comfort').count %>
-</p>
-
-<p>
-  <strong>Seats quantity:</strong><br>
-  Economy - Up Seat: <%= @train.wagons.where(type: 'Economy').sum(:up_seat) %><br>
-  Economy - Low Seat: <%= @train.wagons.where(type: 'Economy').sum(:down_seat) %><br>
-  Comfort - Up Seat: <%= @train.wagons.where(type: 'Comfort').sum(:up_seat) %><br>
-  Comfort - Low Seat: <%= @train.wagons.where(type: 'Comfort').sum(:down_seat) %><br>
-</p>
-
-<p>
-  <strong>On station:</strong>
-  <% if @train.current_station.present? %>
-  	<%= @train.current_station.title %>
-  <% else %>
-    unknown
-  <% end %>
 </p>
 
 <p>
   <strong>Route:</strong>
   <% if @train.route.present? %>
-  	<%= @train.route.name %>
+    <%= @train.route.name %>
   <% else %>
     unknown
   <% end %>
 </p>
 
+<p>
+  <strong>Wagons quantity:</strong>
+  <%= @train.wagons.count %><br>
+  Super Economy: <%= @train.wagons.super_economy.size %><br>
+  Economy: <%= @train.wagons.economy.size %><br>
+  Comfort: <%= @train.wagons.comfort.size %><br>
+  Lux: <%= @train.wagons.lux.size %>
+</p>
+
+<p>
+  <strong>Seats quantity:</strong><br>
+    Super Economy - Bottom Seats: <%= @train.count_seats(SuperEconomy, :economy_bottom_seats) %>
+  <p>
+    Economy - Bottom Seats: <%= @train.count_seats(Economy, :bottom_seats) %><br>
+    Economy - Top Seats: <%= @train.count_seats(Economy, :top_seats) %><br>
+    Economy - Side Bottom Seats: <%= @train.count_seats(Economy, :side_bottom_seats) %><br>
+    Economy - Side Top Seats: <%= @train.count_seats(Economy, :side_top_seats) %>
+  </p>
+  <p>
+    Comfort - Bottom Seats: <%= @train.count_seats(Comfort, :bottom_seats) %><br>
+    Comfort - Top Seats: <%= @train.count_seats(Comfort, :top_seats)  %>
+  </p>
+    Lux - Bottom Seats: <%= @train.count_seats(Lux, :bottom_seats) %>
+</p>
+
+<p>
+  <strong>Wagons:</strong><br>
+  <% @wagons = @train.head ? @train.wagons.ordered : @train.wagons.ordered_desc %>
+  <% @wagons.each do |wagon| %>
+  <%= link_to "Number - #{wagon.number} (#{wagon.type})", wagon %><br>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_train_path(@train) %> |
-<%= link_to 'Back', trains_path %>
+<%= link_to 'Back', :back %>
