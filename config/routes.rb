@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  resources :trains
+  resources :trains do
+    resources :wagons
+  end
+  
   resources :railway_stations do
     patch :update_position, on: :member
   end
+
   resources :routes
-  resources :wagons
   resources :economy, controller: 'wagons', type: 'Economy'
   resources :comfort, controller: 'wagons', type: 'Comfort'
   resources :super_economy, controller: 'wagons', type: 'SuperEconomy'
