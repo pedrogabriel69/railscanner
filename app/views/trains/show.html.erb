@@ -25,26 +25,37 @@
 
 <p>
   <strong>Seats quantity:</strong><br>
-    Super Economy - Bottom Seats: <%= @train.count_seats(SuperEconomy, :economy_bottom_seats) %>
+    <strong>Super Economy:</strong><br>
+    Bottom Seats: <%= @train.count_seats(SuperEconomy, :economy_bottom_seats) %>
   <p>
-    Economy - Bottom Seats: <%= @train.count_seats(Economy, :bottom_seats) %><br>
-    Economy - Top Seats: <%= @train.count_seats(Economy, :top_seats) %><br>
-    Economy - Side Bottom Seats: <%= @train.count_seats(Economy, :side_bottom_seats) %><br>
-    Economy - Side Top Seats: <%= @train.count_seats(Economy, :side_top_seats) %>
+    <strong>Economy:</strong><br>
+    Bottom Seats: <%= @train.count_seats(Economy, :bottom_seats) %><br>
+    Top Seats: <%= @train.count_seats(Economy, :top_seats) %><br>
+    Side Bottom Seats: <%= @train.count_seats(Economy, :side_bottom_seats) %><br>
+    Side Top Seats: <%= @train.count_seats(Economy, :side_top_seats) %>
   </p>
   <p>
-    Comfort - Bottom Seats: <%= @train.count_seats(Comfort, :bottom_seats) %><br>
-    Comfort - Top Seats: <%= @train.count_seats(Comfort, :top_seats)  %>
+    <strong>Comfort:</strong><br>
+    Bottom Seats: <%= @train.count_seats(Comfort, :bottom_seats) %><br>
+    Top Seats: <%= @train.count_seats(Comfort, :top_seats)  %>
   </p>
-    Lux - Bottom Seats: <%= @train.count_seats(Lux, :bottom_seats) %>
+    <strong>Lux:</strong><br>
+    Bottom Seats: <%= @train.count_seats(Lux, :bottom_seats) %>
 </p>
 
 <p>
-  <strong>Wagons:</strong><br>
-  <% @wagons = @train.head ? @train.wagons.ordered : @train.wagons.ordered_desc %>
-  <% @wagons.each do |wagon| %>
-  <%= link_to "Number - #{wagon.number} (#{wagon.type})", wagon %><br>
-  <% end %>
+  <strong>Wagons:</strong>
+  <ul>
+    <% @wagons = @train.head ? @train.wagons.ordered : @train.wagons.ordered_desc %>
+    <% @wagons.each do |wagon| %>
+      <li><%= link_to "Wagon №#{wagon.number} (#{wagon.type})", wagon %> |
+      <%= link_to 'Delete', wagon, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <%= link_to "Add Wagon", new_train_wagon_path(@train) %>
 </p>
 
 <%= link_to 'Edit', edit_train_path(@train) %> |

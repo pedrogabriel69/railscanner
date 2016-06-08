@@ -14,8 +14,21 @@ class RailwayStation < ActiveRecord::Base
     station_route.update(position: position) if station_route
   end
 
-  def position_in(route)
+  def update_arrive_departure(route, arrive, departure)
+    station_route = station_route(route)
+    station_route.update(arrive: arrive, departure: departure) if station_route
+  end
+
+  def position(route)
     station_route(route).try(:position)
+  end
+
+  def arrive(route)
+    station_route(route).try(:arrive)
+  end
+
+  def departure(route)
+    station_route(route).try(:departure)
   end
 
   protected
