@@ -26,8 +26,8 @@
           <td><%= station.title %></td>
           <td>
             <%= form_tag update_arrive_departure_railway_station_path(station), method: :patch do %>
-              <%= datetime_local_field_tag :arrive, station.arrive(@route) %>
-              <%= datetime_local_field_tag :departure, station.departure(@route) %>
+              <%= time_field_tag :arrive, station.arrive(@route).strftime('%H:%M') %>
+              <%= time_field_tag :departure, station.departure(@route).strftime('%H:%M') %>
               <%= hidden_field_tag :route_id, @route.id %>
               <%= submit_tag "Change" %>
             <% end %>

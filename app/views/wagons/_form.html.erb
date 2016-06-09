@@ -3,7 +3,7 @@
   
   <div class="field">
     <%= f.label :type, "Wagon Type" %>
-    <%= f.select(:type, options_for_select([:SuperEconomy, :Economy, :Comfort, :Lux])) %>
+    <%= f.select(:type, options_for_select({'super economy' => :SuperEconomy, 'economy' => :Economy, 'comfort' => :Comfort, 'lux' => :Lux})) %>
   </div>  
 
   <div class="field">

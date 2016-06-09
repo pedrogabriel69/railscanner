@@ -1,0 +1,21 @@
+<%= form_tag train_tickets_path(params[:train_id]) do |f| %>
+  
+  <div class="field">
+    <%= label_tag :name %><br>
+    <%= text_field_tag :name %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :surname %><br>
+    <%= text_field_tag :surname %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :passport_id, 'Document Number' %><br>
+    <%= text_field_tag :passport_id %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Buy Ticket' %>
+  </div>
+<% end %>

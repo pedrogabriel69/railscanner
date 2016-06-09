@@ -1,1 +1,32 @@
 <h1>Search Ticket</h1>
+<%= form_tag search_path do %>                  
+  <%= label_tag 'Initial Station' %>
+  <%= collection_select nil, :initial_station_id, RailwayStation.all, :id, :title %> 
+
+  <%= label_tag 'Final Station' %>
+  <%= collection_select nil, :final_station_id, RailwayStation.all, :id, :title %>
+
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<p>
+  <% if @routes.empty? %>
+    Route unknown
+  <% else %>     
+      <% @routes.compact.each do |route| %>
+        <% route.trains.each do |train| %>
+          <p>
+            <strong>Route:</strong> <%= route.name %>
+              <ul>                
+                  <li>
+                    <%= link_to "Train №#{train.number}", train %> |
+                    <%= link_to 'Buy Ticket', new_train_ticket_path(train) %><br>
+                    <%= "Departure: #{route.railway_stations.ordered.first.departure(route).strftime('%H:%M')} /
+                     Arrive: #{route.railway_stations.ordered.first.arrive(route).strftime('%H:%M')}" %>
+                  </li>              
+              </ul>
+          </p>
+        <% end %>
+      <% end %>    
+  <% end %>
+</p>

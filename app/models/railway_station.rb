@@ -30,7 +30,7 @@ class RailwayStation < ActiveRecord::Base
   def departure(route)
     station_route(route).try(:departure)
   end
-
+  
   protected
 
   def station_route(route)
