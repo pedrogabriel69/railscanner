@@ -1,6 +1,6 @@
 class Wagon < ActiveRecord::Base
   belongs_to :train
-  
+
   validates :number, presence: true
   validates :number, uniqueness: { scope: :train_id }
 

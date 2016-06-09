@@ -15,7 +15,7 @@ AllCops:
   StyleGuideCopsOnly: true
 
 Metrics/LineLength:
-  Max: 100
+  Max: 120
 
 Metrics/MethodLength:
   Max: 17

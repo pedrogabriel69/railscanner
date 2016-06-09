@@ -13,7 +13,7 @@ class RoutesController < ApplicationController
     @route = Route.new(route_params)
 
     if @route.save
-      redirect_to @route, notice: "Route was successfully created."
+      redirect_to @route, notice: 'Route was successfully created.'
     else
       render :new
     end

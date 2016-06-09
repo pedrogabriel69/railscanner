@@ -3,14 +3,14 @@ Rails.application.routes.draw do
     resources :wagons, shallow: true
     resources :tickets, shallow: true
   end
-  
+
   resources :railway_stations do
     patch :update_position, on: :member
     patch :update_arrive_departure, on: :member
   end
 
   resource :search, only: [:show, :create]
-  resources :routes 
+  resources :routes
   resources :economy, controller: 'wagons', type: 'Economy'
   resources :comfort, controller: 'wagons', type: 'Comfort'
   resources :super_economy, controller: 'wagons', type: 'SuperEconomy'

@@ -10,9 +10,9 @@ class TicketsController < ApplicationController
   def create
     @user = User.new(name: params[:name], surname: params[:surname], passport_id: params[:passport_id])
     if @user.save
-    @ticket = @train.tickets.create(user: @user, train: @train, initial_station: @train.route.railway_stations.ordered.first,
-                                final_station: @train.route.railway_stations.ordered.last)
-        redirect_to @ticket       
+      @ticket = @train.tickets.create(user: @user, train: @train, initial_station: @train.route.railway_stations.ordered.first,
+                                  final_station: @train.route.railway_stations.ordered.last)
+        redirect_to @ticket
       else
         render :new
       end
@@ -20,7 +20,7 @@ class TicketsController < ApplicationController
 
   def show
   end
-  
+
   private
 
   def set_train

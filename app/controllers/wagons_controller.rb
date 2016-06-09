@@ -15,22 +15,22 @@ class WagonsController < ApplicationController
 
   def edit
   end
-  
+
   def create
     @wagon = @train.wagons.new(wagon_params)
       if @wagon.save
-        redirect_to @train        
+        redirect_to @train
       else
         render :new
       end
   end
 
-  def update    
+  def update
     if @wagon.update(wagon_params)
-        redirect_to @wagon
+      redirect_to @wagon
       else
         render :edit
-    end        
+    end
   end
 
   def destroy
@@ -38,8 +38,8 @@ class WagonsController < ApplicationController
     redirect_to trains_path
   end
 
-  private  
-    
+  private
+
   def set_wagon
     @wagon = Wagon.find(params[:id]).becomes(Wagon)
   end
@@ -50,5 +50,5 @@ class WagonsController < ApplicationController
 
   def wagon_params
     params.require(:wagon).permit(:type, :number, :top_seats, :bottom_seats, :side_top_seats, :side_bottom_seats, :economy_bottom_seats, :train_id)
-  end  
+  end
 end
