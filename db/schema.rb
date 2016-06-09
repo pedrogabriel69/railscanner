@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160609111600) do
     t.integer  "route_id"
     t.integer  "number"
     t.integer  "position"
-    t.datetime "arrive"
-    t.datetime "departure"
+    t.datetime "arrive",             default: '2016-06-09 17:01:43'
+    t.datetime "departure",          default: '2016-06-09 17:01:44'
   end
 
   create_table "routes", force: :cascade do |t|
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20160609111600) do
     t.integer  "train_id"
     t.integer  "initial_station_id"
     t.integer  "final_station_id"
-    t.string   "name"
   end
 
   create_table "trains", force: :cascade do |t|
@@ -52,7 +51,6 @@ ActiveRecord::Schema.define(version: 20160609111600) do
     t.datetime "updated_at",                        null: false
     t.integer  "route_id"
     t.integer  "current_station_id"
-    t.boolean  "is_head",            default: true
     t.boolean  "head",               default: true
   end
 

@@ -4,6 +4,8 @@
       <thead>
         <tr>
           <td><strong>Route</strong></td>
+          <td><strong>Departure</strong></td>
+          <td><strong>Arrive</strong></td>
           <td><strong>Name</strong></td>
           <td><strong>Surname</strong></td>
           <td><strong>Document</strong></td>
@@ -12,6 +14,11 @@
       <tbody>
         <tr>
           <td><%= "#{@ticket.initial_station.title} - #{@ticket.final_station.title}" %></td>
+        <% @routes = @ticket.initial_station.routes & @ticket.final_station.routes %>
+        <% @routes.each do |route| %>
+          <td><%= route.railway_stations.ordered.first.departure(route).strftime('%H:%M') %></td>
+          <td><%= route.railway_stations.ordered.last.arrive(route).strftime('%H:%M') %></td>
+        <% end %>
           <td><%= @ticket.user.name %></td>
           <td><%= @ticket.user.surname %></td>
           <td><%= @ticket.user.passport_id %></td>
