@@ -1,6 +1,6 @@
 class Wagon < ActiveRecord::Base
   belongs_to :train
-  
+
   validates :number, presence: true
   validates :number, uniqueness: { scope: :train_id }
 
@@ -17,6 +17,6 @@ class Wagon < ActiveRecord::Base
   private
 
   def set_number
-    self.number = train.wagons.size + 1
+    self.number = train.wagons.maximum(:number).to_i + 1
   end
 end
