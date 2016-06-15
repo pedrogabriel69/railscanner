@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  get 'welcome/index'
     
   resources :tickets, except: [:edit, :destroy]
   resource :search, only: [:show, :create]
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
       patch :update_arrive_departure, on: :member
     end
 
+    get 'admin/index'
     resources :tickets
     resources :routes
     resources :economy, controller: 'wagons', type: 'Economy'

@@ -1,14 +1,16 @@
 <h1>RailScanner</h1>
-<h4>
-  <% if current_user == nil %>
-    <%= link_to 'My Tickets', tickets_path(@ticket) %>
-  <% elsif current_user.admin? %>
-    <%= link_to 'Tickets', admin_tickets_path(@ticket) %></h4>
-  <% else %>
-    <%= link_to 'My Tickets', tickets_path(@ticket) %>
-  <% end %>
-</h4>
+
+<h4><%= link_to 'My Tickets', tickets_path(@ticket) %></h4>
 <h4><%= link_to "Search Ticket", search_path %></h4>
-<h4><%= link_to "List Stations", admin_railway_stations_path %></h4>
-<h4><%= link_to "List Routes", admin_routes_path %></h4>
-<h4><%= link_to "List Trains", admin_trains_path %></h4>
+
+<!--  <% if current_user == nil %>
+    <h4><%= link_to 'My Tickets', tickets_path(@ticket) %></h4>
+  <% elsif current_user.admin? %>
+    <h4><%= link_to 'Tickets', admin_tickets_path(@ticket) %></h4>
+    <h4><%= link_to "List Stations", admin_railway_stations_path %></h4>
+    <h4><%= link_to "List Routes", admin_routes_path %></h4>
+    <h4><%= link_to "List Trains", admin_trains_path %></h4>
+  <% else %>
+    <h4><%= link_to 'My Tickets', tickets_path(@ticket) %></h4>    
+  <% end %>
+  <h4><%= link_to "Search Ticket", search_path %></h4> -->
