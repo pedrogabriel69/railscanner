@@ -1,5 +1,5 @@
 class TicketsController < ApplicationController
-  before_action :authenticate_user!, only: :create
+  before_action :authenticate_user!, only: [:index, :create]
   before_action :set_ticket, only: [:show]
   before_action :set_train, only: [:create]
 

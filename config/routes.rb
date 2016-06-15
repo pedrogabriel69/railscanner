@@ -1,27 +1,27 @@
 Rails.application.routes.draw do
   devise_for :users
-  
-  resources :trains do
-    resources :wagons, shallow: true
-  end
-
-  resources :railway_stations do
-    patch :update_position, on: :member
-    patch :update_arrive_departure, on: :member
-  end
-
-
-  resources :tickets
+    
+  resources :tickets, except: [:edit, :destroy]
   resource :search, only: [:show, :create]
-  resources :routes
-  resources :economy, controller: 'wagons', type: 'Economy'
-  resources :comfort, controller: 'wagons', type: 'Comfort'
-  resources :super_economy, controller: 'wagons', type: 'SuperEconomy'
-  resources :lux, controller: 'wagons', type: 'Lux'
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
+  
+  namespace :admin do
+    resources :trains do
+      resources :wagons, shallow: true
+    end
 
-  # You can have the root of your site routed with "root"
+    resources :railway_stations do
+      patch :update_position, on: :member
+      patch :update_arrive_departure, on: :member
+    end
+
+    resources :tickets
+    resources :routes
+    resources :economy, controller: 'wagons', type: 'Economy'
+    resources :comfort, controller: 'wagons', type: 'Comfort'
+    resources :super_economy, controller: 'wagons', type: 'SuperEconomy'
+    resources :lux, controller: 'wagons', type: 'Lux'
+  end
+
   root 'welcome#index'
 
   # Example of regular route:

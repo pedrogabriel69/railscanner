@@ -1,0 +1,60 @@
+<p>
+  <strong>Train Number:</strong>
+  <%= @train.number %>
+</p>
+
+<p>
+  <strong>Route:</strong>
+  <% if @train.route.present? %>
+    <%= @train.route.name %>
+  <% else %>
+    unknown
+  <% end %>
+</p>
+
+<p>
+  <strong>Wagons quantity:</strong>
+  <%= @train.wagons.count %><br>
+  Super Economy: <%= @train.wagons.super_economy.size %><br>
+  Economy: <%= @train.wagons.economy.size %><br>
+  Comfort: <%= @train.wagons.comfort.size %><br>
+  Lux: <%= @train.wagons.lux.size %>
+</p>
+
+<p>
+  <strong>Seats quantity:</strong><br>
+    <strong>Super Economy:</strong><br>
+    Economy Bottom Seats: <%= @train.count_seats(SuperEconomy, :economy_bottom_seats) %>
+  <p>
+    <strong>Economy:</strong><br>
+    Bottom Seats: <%= @train.count_seats(Economy, :bottom_seats) %><br>
+    Top Seats: <%= @train.count_seats(Economy, :top_seats) %><br>
+    Side Bottom Seats: <%= @train.count_seats(Economy, :side_bottom_seats) %><br>
+    Side Top Seats: <%= @train.count_seats(Economy, :side_top_seats) %>
+  </p>
+  <p>
+    <strong>Comfort:</strong><br>
+    Bottom Seats: <%= @train.count_seats(Comfort, :bottom_seats) %><br>
+    Top Seats: <%= @train.count_seats(Comfort, :top_seats)  %>
+  </p>
+    <strong>Lux:</strong><br>
+    Bottom Seats: <%= @train.count_seats(Lux, :bottom_seats) %>
+</p>
+
+<p>
+  <strong>Wagons:</strong>
+  <ul>
+    <% @wagons = @train.head ? @train.wagons.ordered : @train.wagons.ordered_desc %>
+    <% @wagons.each do |wagon| %>
+      <li><%= link_to "Wagon №#{wagon.number} (#{wagon.type})", [:admin, wagon] %> |
+      <%= link_to 'Delete', [:admin, wagon], method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <%= link_to "Add Wagon", new_admin_train_wagon_path(@train) %>
+</p>
+
+<%= link_to 'Edit', edit_admin_train_path(@train) %> |
+<%= link_to 'Back', :back %>

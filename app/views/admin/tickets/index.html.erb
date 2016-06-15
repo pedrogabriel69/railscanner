@@ -1,0 +1,12 @@
+<h1>Listing Tickets</h1>
+
+<% @tickets.each do |ticket| %>
+  <ul>
+    <li>
+      <%= "№#{ @tickets.index(ticket) + 1 }" %> |
+      <%= link_to "#{ticket.initial_station.title} - #{ticket.final_station.title}", [:admin, ticket] %> |
+      <%= link_to 'Edit', edit_admin_ticket_path(ticket) %> |
+      <%= link_to 'Destroy', [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  </ul>
+<% end %>

@@ -1,0 +1,22 @@
+<%= form_for [:admin, @train] do |f| %>
+  <%= render 'common/errors', resource: @train %>
+
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :route, "Routes" %>
+    <%= f.collection_select :route_id, Route.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label 'Head --> Tail' %>
+    <%= f.check_box :head %>
+  </div>  
+
+  <div class="actions">
+    <%= f.submit "#{ @train.new_record? ? 'Create' : 'Edit' }" %>
+  </div>
+<% end %>
