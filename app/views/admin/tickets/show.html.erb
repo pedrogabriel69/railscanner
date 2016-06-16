@@ -29,3 +29,5 @@
 </table>
 
 <p><%= link_to 'Tickets', admin_tickets_path(@ticket) %></p>
+<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
+<%= link_to 'Delete', [:admin, @ticket], method: :delete, data: { confirm: 'Are you sure?' } %>

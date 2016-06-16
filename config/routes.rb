@@ -2,10 +2,10 @@ Rails.application.routes.draw do
   devise_for :users
 
   get 'welcome/index'
-    
+
   resources :tickets, except: [:edit, :destroy]
   resource :search, only: [:show, :create]
-  
+
   namespace :admin do
     resources :trains do
       resources :wagons, shallow: true

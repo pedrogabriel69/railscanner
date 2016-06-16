@@ -12,9 +12,9 @@ class TicketsController < ApplicationController
   end
 
   def create
-      @ticket = current_user.tickets.new(train: @train, initial_station: @train.route.railway_stations.ordered.first, 
-        final_station: @train.route.railway_stations.ordered.last, name: params[:name], 
-        surname: params[:surname], passport_id: params[:passport_id])
+    @ticket = current_user.tickets.new(train: @train, initial_station: @train.route.railway_stations.ordered.first,
+      final_station: @train.route.railway_stations.ordered.last, name: params[:name],
+      surname: params[:surname], passport_id: params[:passport_id])
       if @ticket.save
         redirect_to @ticket
       else
