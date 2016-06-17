@@ -1,0 +1,27 @@
+<h1>Editing Ticket</h1>
+
+<%= form_for [:admin, @ticket] do |f| %>
+  
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :surname %><br>
+    <%= f.text_field :surname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :passport_id, 'Document Number' %><br>
+    <%= f.text_field :passport_id %>
+  </div>
+
+  <div class="actions">
+    <%= hidden_field_tag :train_id, params[:train_id] %>
+    <%= f.submit 'Edit' %>
+  </div>
+<% end %>
+
+<%= link_to 'Show', [:admin, @ticket] %> |
+<%= link_to 'Back', :back %>

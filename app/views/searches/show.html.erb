@@ -1,9 +1,9 @@
 <h1>Search Ticket</h1>
 <%= form_tag search_path do %>                  
-  <%= label_tag 'Initial Station' %>
+  <%= label_tag 'From' %>
   <%= collection_select nil, :initial_station_id, RailwayStation.all, :id, :title %> 
 
-  <%= label_tag 'Final Station' %>
+  <%= label_tag 'To' %>
   <%= collection_select nil, :final_station_id, RailwayStation.all, :id, :title %>
 
   <%= submit_tag 'Search' %>
@@ -19,8 +19,8 @@
             <strong>Route:</strong> <%= route.name %>
               <ul>                
                   <li>
-                    <%= link_to "Train №#{train.number}", train %> |
-                    <%= link_to 'Buy Ticket', new_train_ticket_path(train) %><br>
+                    <%= link_to "Train №#{train.number}", [:admin, train] %> |
+                    <%= link_to 'Buy Ticket', new_ticket_path(train) %><br>
                     <%= "Departure: #{route.railway_stations.ordered.first.departure(route).strftime('%H:%M')} /
                      Arrive: #{route.railway_stations.ordered.last.arrive(route).strftime('%H:%M')}" %>
                   </li>              

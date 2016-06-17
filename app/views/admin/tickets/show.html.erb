@@ -1,0 +1,33 @@
+<h1>Ticket Info</h1>
+
+<p>Ticket Bought: <%= @ticket.user.email %></p>
+
+<table>
+      <thead>
+        <tr>
+          <td><strong>Route</strong></td>
+          <td><strong>Departure</strong></td>
+          <td><strong>Arrive</strong></td>
+          <td><strong>Name</strong></td>
+          <td><strong>Surname</strong></td>
+          <td><strong>Document</strong></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= "#{@ticket.initial_station.title} - #{@ticket.final_station.title}" %></td>
+        <% @routes = @ticket.initial_station.routes & @ticket.final_station.routes %>
+        <% @routes.each do |route| %>
+          <td><%= route.railway_stations.ordered.first.departure(route).strftime('%H:%M') %></td>
+          <td><%= route.railway_stations.ordered.last.arrive(route).strftime('%H:%M') %></td>
+        <% end %>
+          <td><%= @ticket.name %></td>
+          <td><%= @ticket.surname %></td>
+          <td><%= @ticket.passport_id %></td>
+        </tr>
+      </tbody>
+</table>
+
+<p><%= link_to 'Tickets', admin_tickets_path(@ticket) %></p>
+<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
+<%= link_to 'Delete', [:admin, @ticket], method: :delete, data: { confirm: 'Are you sure?' } %>
