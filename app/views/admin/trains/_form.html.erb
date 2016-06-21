@@ -7,7 +7,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :route, "Routes" %>
+    <%= f.label :route %>
     <%= f.collection_select :route_id, Route.all, :id, :name %>
   </div>
 
@@ -17,6 +17,6 @@
   </div>  
 
   <div class="actions">
-    <%= f.submit "#{ @train.new_record? ? 'Create' : 'Edit' }" %>
+    <%= f.submit t('.submit', action: @train.new_record? ? 'Create' : 'Edit') %>
   </div>
 <% end %>

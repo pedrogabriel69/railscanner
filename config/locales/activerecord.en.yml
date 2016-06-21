@@ -1,0 +1,21 @@
+en:
+  activerecord:
+    models:
+      railway_station: 'Station'
+      train: 'Train'
+      route: 'Route'
+      wagon: 'Wagon'
+    attributes:
+      route:
+        name: 'Title'
+        railway_station_ids: 'Stations'
+      train:
+        route: 'Routes'
+      wagon:
+        type: 'Wagon Type'
+    errors:
+      models:
+        train:
+          attributes:
+            number:
+              blank: 'must be specified'

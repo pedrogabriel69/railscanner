@@ -6,6 +6,6 @@
     <%= f.text_field :title %>
   </div>
   <div class="actions">
-    <%= f.submit "#{ @railway_station.new_record? ? 'Create' : 'Edit' }"%>
+    <%= f.submit t('.submit', action: @railway_station.new_record? ? 'Create' : 'Edit') %>
   </div>
 <% end %>

@@ -20,4 +20,52 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  common:
+    back: 'Back'
+    show: 'Show'
+    edit: 'Edit'
+  admin:
+    railway_stations:
+      edit:
+        title: 'Editing Station'
+      index:
+        title: 'Listing Stations'
+      new:
+        title: 'New Station'
+      show:
+        title: 'Title:'
+      form:
+        submit: '%{action} Station'
+    routes:
+      edit:
+        title: 'Editing Route'
+      index:
+        title: 'Listing Routes'
+      new:
+        title: 'New Route'
+      show:
+        title: 'Title:'
+      form:
+        submit: '%{action} Route'        
+    trains:
+      edit:
+        title: 'Editing Train'
+      index:
+        title: 'Listing Trains'
+      new:
+        title: 'New Train'
+      show:
+        title: 'Train Number:'
+      form:
+        submit: '%{action} Train'
+    wagons:
+      edit:
+        title: 'Editing Wagon'
+      index:
+        title: 'Listing Wagons'
+      new:
+        title: 'New Wagon'
+      show:
+        title: 'Wagon Number:'
+      form:
+        submit: '%{action} Wagon'

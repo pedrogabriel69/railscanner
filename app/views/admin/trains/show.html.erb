@@ -1,5 +1,5 @@
 <p>
-  <strong>Train Number:</strong>
+  <strong><%= t('.title') %></strong>
   <%= @train.number %>
 </p>
 
@@ -56,5 +56,5 @@
   <%= link_to "Add Wagon", new_admin_train_wagon_path(@train) %>
 </p>
 
-<%= link_to 'Edit', edit_admin_train_path(@train) %> |
-<%= link_to 'Back', :back %>
+<%= link_to t('common.edit'), edit_admin_train_path(@train) %> |
+<%= link_to t('common.back'), admin_trains_path %>
