@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160615151244) do
     t.integer  "route_id"
     t.integer  "number"
     t.integer  "position"
-    t.datetime "arrive",             default: '2016-06-14 15:12:26'
-    t.datetime "departure",          default: '2016-06-14 15:12:26'
+    t.datetime "arrive",             default: '2016-06-21 13:42:52'
+    t.datetime "departure",          default: '2016-06-21 13:42:52'
   end
 
   create_table "routes", force: :cascade do |t|
@@ -60,6 +60,8 @@ ActiveRecord::Schema.define(version: 20160615151244) do
   create_table "users", force: :cascade do |t|
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "surname"
+    t.string   "passport_id"
     t.string   "email",                  default: "",    null: false
     t.string   "encrypted_password",     default: "",    null: false
     t.string   "reset_password_token"
@@ -71,7 +73,6 @@ ActiveRecord::Schema.define(version: 20160615151244) do
     t.string   "unconfirmed_email"
     t.boolean  "admin",                  default: false
     t.string   "name"
-    t.string   "surname"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
