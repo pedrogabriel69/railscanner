@@ -1,10 +1,11 @@
 <h1>Ticket Info</h1>
 
-<p>Ticket Bought: <%= @ticket.user.email %></p>
+<p><strong>Buyer:</strong> <%= @ticket.user.email %></p>
 
-<table>
+<table class="table table-bordered">
       <thead>
         <tr>
+          <td><strong>Train №</strong></td>
           <td><strong>Route</strong></td>
           <td><strong>Departure</strong></td>
           <td><strong>Arrive</strong></td>
@@ -15,6 +16,7 @@
       </thead>
       <tbody>
         <tr>
+          <td><%= @ticket.train.number %></td>
           <td><%= "#{@ticket.initial_station.title} - #{@ticket.final_station.title}" %></td>
         <% @routes = @ticket.initial_station.routes & @ticket.final_station.routes %>
         <% @routes.each do |route| %>
@@ -28,6 +30,7 @@
       </tbody>
 </table>
 
-<p><%= link_to 'Tickets', admin_tickets_path(@ticket) %></p>
-<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
-<%= link_to 'Delete', [:admin, @ticket], method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  <%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
+  <%= link_to 'Delete', [:admin, @ticket], method: :delete, data: { confirm: 'Are you sure?' } %>
+

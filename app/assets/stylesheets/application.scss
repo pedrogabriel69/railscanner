@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+  padding-top: 60px;
+  background-image: image-url('train.jpg');
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: #fafafa;
+}
+
+.navbar-default {
+  background-color: #fff;
+  height: 54px;
+  .navbar-nav li a {
+    color: #125688;
+  }
+}

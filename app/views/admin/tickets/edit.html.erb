@@ -3,23 +3,20 @@
 <%= form_for [:admin, @ticket] do |f| %>
   
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, placeholder: 'Name', class: 'input-lg' %>
   </div>
 
   <div class="field">
-    <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
+    <%= f.text_field :surname, placeholder: 'Surname', class: 'input-lg' %>
   </div>
 
   <div class="field">
-    <%= f.label :passport_id, 'Document Number' %><br>
-    <%= f.text_field :passport_id %>
+    <%= f.text_field :passport_id, placeholder: 'Document Number', class: 'input-lg' %>
   </div>
 
   <div class="actions">
     <%= hidden_field_tag :train_id, params[:train_id] %>
-    <%= f.submit 'Edit' %>
+    <%= f.submit 'Edit', class: 'btn-lg btn-info' %>
   </div>
 <% end %>
 

@@ -7,6 +7,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit t('.submit', action: @route.new_record? ? 'Create' : 'Edit') %>
+    <%= f.submit t('.submit', action: @route.new_record? ? 'Create' : 'Edit'), class: 'btn-lg btn-info' %>
   </div>
 <% end %>
