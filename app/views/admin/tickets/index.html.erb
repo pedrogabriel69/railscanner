@@ -1,12 +1,26 @@
-<h1>Listing Tickets</h1>
-
-<% @tickets.each do |ticket| %>
-  <ul>
-    <li>
-      <%= "№#{ @tickets.index(ticket) + 1 }" %> |
-      <%= link_to "#{ticket.initial_station.title} - #{ticket.final_station.title}", [:admin, ticket] %> |
-      <%= link_to 'Edit', edit_admin_ticket_path(ticket) %> |
-      <%= link_to 'Delete', [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' } %>
-    </li>
-  </ul>
-<% end %>
+<div class="text-center">
+  <h1>Listing Tickets</h1>
+</div>
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <td><strong>№</strong></td>
+      <td><strong>Buyer</strong></td>
+      <td><strong>Train №</strong></td>
+      <td><strong>Route</strong></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @tickets.each do |ticket| %>
+      <tr>          
+        <td><%= "#{ @tickets.index(ticket) + 1 }" %></td>
+        <td><%= ticket.user.email %></td>
+        <td><%= ticket.train.number %></td>
+        <td><%= "#{ticket.initial_station.title} - #{ticket.final_station.title}" %></td>
+        <td><%= link_to 'Show', [:admin, ticket] %></td>
+        <td><%= link_to 'Edit', edit_admin_ticket_path(ticket) %></td>
+        <td><%= link_to 'Delete', [:admin, ticket], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

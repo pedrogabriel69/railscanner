@@ -2,13 +2,12 @@
   <%= render 'common/errors', resource: @train %>
 
   <div class="field">
-    <%= f.label :number %><br>
-    <%= f.text_field :number %>
+    <%= f.text_field :number, placeholder: 'Number', class: 'input-lg' %>
   </div>
 
   <div class="field">
-    <%= f.label :route, "Routes" %>
-    <%= f.collection_select :route_id, Route.all, :id, :name %>
+    <%= f.label :route %>
+    <%= f.select :route_id, options_from_collection_for_select(Route.all, :id, :name), {}, class: 'form-control' %>
   </div>
 
   <div class="field">
@@ -17,6 +16,6 @@
   </div>  
 
   <div class="actions">
-    <%= f.submit "#{ @train.new_record? ? 'Create' : 'Edit' }" %>
+    <%= f.submit t('.submit', action: @train.new_record? ? 'Create' : 'Edit'), class: 'btn-lg btn-info' %>
   </div>
 <% end %>

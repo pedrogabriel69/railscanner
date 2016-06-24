@@ -1,5 +1,5 @@
 <p>
-  <strong>Wagon Number:</strong>
+  <strong><%= t('.title') %></strong>
   <%= @wagon.number %>
 </p>
 
@@ -32,5 +32,5 @@
   <%= @wagon.train.number %>
 </p>
 
-<%= link_to 'Edit', edit_admin_wagon_path(@wagon) %> |
-<%= link_to 'Back', [:admin, @wagon.train] %>
+<%= link_to t('common.edit'), edit_admin_wagon_path(@wagon) %> |
+<%= link_to t('common.back'), [:admin, @wagon.train] %>

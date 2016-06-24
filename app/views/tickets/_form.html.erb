@@ -1,21 +1,17 @@
-<%= form_tag tickets_path(@ticket) %>
-  
+<%= form_tag tickets_path(@ticket) do %>  
   <div class="field">
-    <%= label_tag :name %><br>
-    <%= text_field_tag :name %>
+    <%= text_field_tag :name, nil, placeholder: 'Name', class: 'form-control' %>
   </div>
-
   <div class="field">
-    <%= label_tag :surname %><br>
-    <%= text_field_tag :surname %>
+    <%= text_field_tag :surname, nil, placeholder: 'Surname', class: 'form-control' %>
   </div>
-
   <div class="field">
-    <%= label_tag :passport_id, 'Document Number' %><br>
-    <%= text_field_tag :passport_id %>
+    <%= text_field_tag :passport_id, nil, placeholder: 'Document Number', class: 'form-control' %>
   </div>
-
   <div class="actions">
     <%= hidden_field_tag :train_id, params[:train_id] %>
-    <%= submit_tag 'Buy' %>
+    <%= hidden_field_tag :initial_station_id, @initial_station %>
+    <%= hidden_field_tag :final_station_id, @final_station %>
+    <%= submit_tag 'Buy Ticket', class: 'btn-lg btn-info' %>
   </div>
+<% end %>

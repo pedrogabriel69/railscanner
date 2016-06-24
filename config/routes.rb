@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     resources :lux, controller: 'wagons', type: 'Lux'
   end
 
-  root 'welcome#index'
+  root 'searches#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

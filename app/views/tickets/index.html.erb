@@ -1,10 +1,22 @@
-<h1>Listing Tickets</h1>
-
-<% current_user.tickets.each do |ticket| %>
-  <ul>
-    <li>
-      <%= "№#{ current_user.tickets.index(ticket) + 1 }" %> |
-      <%= link_to "#{ticket.initial_station.title} - #{ticket.final_station.title}", ticket %>
-    </li>
-  </ul>
-<% end %> 
+<div class="text-center">
+  <h1>My Tickets</h1>
+</div>
+<table class="table table-hover text-center">
+  <thead>
+    <tr>
+      <td><strong>№</strong></td>
+      <td><strong>Route</strong></td>
+      <td><strong>Train №</strong></td>
+    </tr>
+  </thead>
+  <tbody>
+    <% current_user.tickets.each do |ticket| %>
+      <tr>          
+        <td><%= "#{@tickets.index(ticket) + 1}" %></td>
+        <td><%= "#{ticket.initial_station.title} - #{ticket.final_station.title}" %></td>
+        <td><%= ticket.train.number %></td>
+        <td><%= link_to 'Show', ticket %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table> 
