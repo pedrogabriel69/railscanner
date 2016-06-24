@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 20160615151244) do
     t.integer  "route_id"
     t.integer  "number"
     t.integer  "position"
-    t.datetime "arrive",             default: '2016-06-21 13:42:52'
-    t.datetime "departure",          default: '2016-06-21 13:42:52'
+    t.datetime "arrive",             default: '2016-06-23 19:52:54'
+    t.datetime "departure",          default: '2016-06-23 19:52:54'
   end
 
   create_table "routes", force: :cascade do |t|

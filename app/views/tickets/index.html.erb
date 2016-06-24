@@ -5,16 +5,16 @@
   <thead>
     <tr>
       <td><strong>№</strong></td>
-      <td><strong>Route</strong></td>
       <td><strong>Train №</strong></td>
+      <td><strong>Route</strong></td>
     </tr>
   </thead>
   <tbody>
     <% current_user.tickets.each do |ticket| %>
       <tr>          
         <td><%= "#{@tickets.index(ticket) + 1}" %></td>
-        <td><%= "#{ticket.initial_station.title} - #{ticket.final_station.title}" %></td>
         <td><%= ticket.train.number %></td>
+        <td><%= "#{ticket.initial_station.title} - #{ticket.final_station.title}" %></td>
         <td><%= link_to 'Show', ticket %></td>
       </tr>
     <% end %>
