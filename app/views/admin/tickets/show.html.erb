@@ -30,7 +30,5 @@
       </tbody>
 </table>
 
-
-  <%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
-  <%= link_to 'Delete', [:admin, @ticket], method: :delete, data: { confirm: 'Are you sure?' } %>
-
+<%= link_to 'Edit', edit_admin_ticket_path(@ticket) %> |
+<%= link_to 'Delete', [:admin, @ticket], method: :delete, data: { confirm: 'Are you sure?' } %>

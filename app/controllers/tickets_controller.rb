@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_ticket, only: [:show]
+  before_action :set_ticket, only: [:show, :destroy]
   before_action :set_train, only: [:create]
 
   def index
@@ -23,6 +23,11 @@ class TicketsController < ApplicationController
   end
 
   def show
+  end
+
+  def destroy
+    @ticket.destroy
+    redirect_to tickets_path(@ticket)
   end
 
   private

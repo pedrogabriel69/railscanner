@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  resources :tickets, except: [:edit, :destroy]
+  resources :tickets, except: [:edit, :update]
   resource :search, only: [:show, :create]
 
   namespace :admin do
