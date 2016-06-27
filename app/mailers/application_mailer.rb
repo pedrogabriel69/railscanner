@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "vita@secnrs.ru"
+  default from: 'vita@secnrs.ru'
   layout 'mailer'
 end

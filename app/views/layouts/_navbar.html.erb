@@ -20,7 +20,7 @@
               <li><%= link_to "Trains", admin_trains_path %></li>
               <li><%= link_to 'Tickets', admin_tickets_path(@ticket) %></li>
             <% end %>                                  
-            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete, confirm: "Are you sure?" %></li>
+            <li><%= link_to "Log out", destroy_user_session_path, method: :delete, confirm: "Are you sure?" %></li>
           <% else %>
             <li><%= link_to "Log in", new_user_session_path %></li>
             <li><%= link_to "Sign up", new_user_registration_path %></li>
