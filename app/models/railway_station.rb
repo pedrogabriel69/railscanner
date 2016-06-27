@@ -5,7 +5,7 @@ class RailwayStation < ActiveRecord::Base
   has_many :initial_point, class_name: 'Ticket', foreign_key: :initial_station_id
   has_many :final_point, class_name: 'Ticket', foreign_key: :final_station_id
 
-  scope :ordered, -> { joins(:railway_stations_routes).order('railway_stations_routes.position').uniq }
+  scope :ordered, -> { joins(:railway_stations_routes).group('railway_stations_routes.position', 'railway_stations.id').order('railway_stations_routes.position')}
 
   validates :title, presence: true
 
