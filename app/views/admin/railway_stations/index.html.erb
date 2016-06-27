@@ -1,6 +1,7 @@
 <div class="text-center">
   <h1><%= t('.title') %></h1>
 </div>
+<%= link_to 'New Station', new_admin_railway_station_path %>
 <table class="table table-hover">
   <thead>
     <tr>
@@ -13,7 +14,3 @@
     <%= render @railway_stations %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Station', new_admin_railway_station_path %>

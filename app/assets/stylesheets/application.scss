@@ -16,7 +16,7 @@
 
 body {
   padding-top: 60px;
-  background-image: image-url('train.jpg');
+  background-image: image-url('terminal2.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
   -o-background-size: cover;
@@ -31,3 +31,14 @@ body {
     color: #125688;
   }
 }
+.navbar-fixed-bottom {
+  background-color: #fff;
+  height: 65px;
+  text-align: center;
+  position: absolute;
+  bottom: 0px;
+  a {
+    color: #125688;
+  }
+}
+
