@@ -28,3 +28,4 @@
 </table>
 
 <p>If you didn't buy this ticket <%= link_to 'click here', @ticket, method: :delete, data: { confirm: 'You delete ticket, Are you sure?' } %> for cancel</p>
+<p><%= link_to "Download Ticket (PDF)", ticket_path(@ticket, :format => "pdf") %></p>

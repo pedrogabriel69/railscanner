@@ -2,4 +2,5 @@
 
 <p>You buy ticket <%= @ticket.route_name %></p>
 <p>If you want to see your ticket <%= link_to 'click here', @ticket %></p>
+<p><%= link_to "Download Ticket (PDF)", ticket_url(@ticket.id, :format => "pdf") %></p>
 <p>All your tickets <%= link_to 'here', tickets_url %></p>

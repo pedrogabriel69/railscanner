@@ -23,6 +23,7 @@ class TicketsController < ApplicationController
   end
 
   def show
+    render :show, layout: false
   end
 
   def destroy
