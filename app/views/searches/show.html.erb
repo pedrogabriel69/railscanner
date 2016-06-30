@@ -24,7 +24,7 @@
               <ul class="list-group">                
                   <li class="list-group-item">
                     <%= "Train №#{train.number}"%> |
-                    <%= link_to 'Buy Ticket', new_ticket_path(train, initial_station_id: @initial_station.id, final_station_id: @final_station.id) %><br>
+                    <%= link_to 'Buy Ticket', new_ticket_path(train_id: train.id, initial_station_id: @initial_station.id, final_station_id: @final_station.id) %><br>
                     <%= "Departure: #{route.railway_stations.ordered.first.departure(route).strftime('%H:%M')} /
                      Arrive: #{route.railway_stations.ordered.last.arrive(route).strftime('%H:%M')}" %>
                   </li>              
