@@ -1,8 +1,8 @@
 class SearchesController < ApplicationController
 
   def create
-    @initial_station = RailwayStation.find(params[:initial_station_id])
-    @final_station = RailwayStation.find(params[:final_station_id])
+    @initial_station = RailwayStation.find(params[:initial_station])
+    @final_station = RailwayStation.find(params[:final_station])
     @routes = (@initial_station.routes & @final_station.routes).compact.uniq
     render :show
   end

@@ -15,8 +15,7 @@
  */
 
 body {
-  padding-top: 50px;
-  background-color: #fff;
+  padding-top: 60px;
 }
 
 .navbar-default {
@@ -26,6 +25,7 @@ body {
     color: #125688;
   }
 }
+
 .navbar-fixed-bottom {
   background-color: #fafafa;
   height: 65px;
@@ -38,7 +38,7 @@ body {
 }
 
 .reg {
-  padding: 100px 0px 100px;
+  padding: 1                      0px 0px 10px;
   background-image: image-url('terminal2.jpg');
   -moz-background-size: cover;
   -webkit-background-size: cover;
