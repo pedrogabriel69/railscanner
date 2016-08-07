@@ -3,24 +3,31 @@
   
   <div class="field">
     <%= f.label :type %>
-    <%= f.select(:type, options_for_select({'Super Economy' => :SuperEconomy, 'Economy' => :Economy, 'Comfort' => :Comfort, 'Lux' => :Lux}), {}, class: 'form-control') %>
+    <%= f.select(:type, options_for_select(
+      {'Super Economy' => :SuperEconomy, 'Economy' => :Economy, 'Comfort' => :Comfort, 'Lux' => :Lux}), {}, class: 'form-control') %><br>
   </div>
-  <div class="field">
+
+  <div class="change_type_wagon Lux">
     <%= f.number_field :bottom_seats, placeholder: 'Bottom seats', class: 'input-lg' %>
   </div>
-  <div class="field">
+
+  <div class="change_type_wagon Comfort">
+    <%= f.number_field :bottom_seats, placeholder: 'Bottom seats', class: 'input-lg' %>
     <%= f.number_field :top_seats, placeholder: 'Top seats', class: 'input-lg' %>
   </div>
-  <div class="field">
+
+  <div class="change_type_wagon Economy">
+    <%= f.number_field :bottom_seats, placeholder: 'Bottom seats', class: 'input-lg' %>
+    <%= f.number_field :top_seats, placeholder: 'Top seats', class: 'input-lg' %>
     <%= f.number_field :side_bottom_seats, placeholder: 'Side bottom seats', class: 'input-lg' %>
-  </div>
-  <div class="field">
     <%= f.number_field :side_top_seats, placeholder: 'Side top seats', class: 'input-lg' %>
   </div>
-  <div class="field">
+
+  <div class="change_type_wagon SuperEconomy">
     <%= f.number_field :economy_bottom_seats, placeholder: 'Economy bottom seats', class: 'input-lg' %>
   </div>
-  <div class="actions">
+
+  <div class="actions"><br>
     <%= f.submit t('.submit', action: @wagon.new_record? ? 'Create' : 'Edit'), class: 'btn-lg btn-info' %>
   </div>
 <% end %>
