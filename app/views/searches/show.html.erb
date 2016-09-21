@@ -1,12 +1,12 @@
 <h1>Search Ticket</h1>
 
 <div class="row">
-<%= form_tag search_path do %>
+<%= form_tag search_path, class: 'search_form' do %>
   <div class="col-md-5"> 
-    <%= select_tag :initial_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title), class: 'form-control' %>
+    <%= select_tag :initial_station, options_from_collection_for_select(RailwayStation.all, :id, :title), class: 'form-control' %>
   </div>
   <div class="col-md-5"> 
-    <%= select_tag :final_station_id, options_from_collection_for_select(RailwayStation.all, :id, :title), class: 'form-control' %>
+    <%= select_tag :final_station, options_from_collection_for_select(RailwayStation.all, :id, :title), class: 'form-control' %>
   </div>
   <div class="col-md-2"> 
     <%= submit_tag 'Search', class: 'btn-lg btn-info btn-block' %>

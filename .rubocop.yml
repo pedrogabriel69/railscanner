@@ -9,13 +9,41 @@ AllCops:
     - 'spec/**/*'
     - 'db/*.rb'
     - 'bin/**/*'
-  Rails:
-    Enabled: true
   DisplayCopNames: true
   StyleGuideCopsOnly: true
 
+Rails:
+  Enabled: true
+
+Style/DoubleNegation:
+  Enabled: false
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/Validation:
+  Enabled: false
+
+Rails/FindBy:
+  Enabled: false
+
 Metrics/LineLength:
-  Max: 120
+  Max: 200
+
+Metrics/AbcSize:
+  Max: 20
+
+Metrics/CyclomaticComplexity:
+  Max: 14
 
 Metrics/MethodLength:
-  Max: 17
+  Max: 29
+
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
